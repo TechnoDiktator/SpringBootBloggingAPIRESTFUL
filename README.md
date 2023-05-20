@@ -6,12 +6,13 @@ A RESTFUL API Backend that serves as a blogging application using Spring Framewo
 #Stack - Spring Rest , Spring BOOT , Spring DATA JPA , PAgination and Sorting , Spring Security , Java Core
 
 #Features 
-1. Login/Logout using JWT Authentication 
-2. Create Read Update Destroy Operations and Blogs
+1. Login/Logout using ** JWT Authentication **
+2. Create Read Update Destroy Operations on Blogs
 3. Comment on blog
-4. Retrieve privious blogs/posts in pages 
+4. Retrieve privious blogs/posts in pages . Done using Pagination and Sorting repository
 6. Admin User  - Allowed to delete comments  and proevious posts
 7. Deployed and documented using **SWAGGER UI** swagger dependency
+8. The logic of this code is very simple and can be extended to many api applications
 
 
 #How to run - 
@@ -30,11 +31,9 @@ spring.datasource.password=PlusOne97!                                           
 
 ## SNAPS
 
-
+![blogpic3](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/4ade1393-c12c-4c68-b1bb-e111b9ec0ee4)
 
 ![blogpic1](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/bb85cf56-df3f-4f69-b598-d70049b9b382)
-
-
 
 ![blogpic2](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/c6ef7f83-31f0-451d-b28e-54858c81f3d5)
 
