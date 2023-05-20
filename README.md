@@ -11,6 +11,7 @@ A RESTFUL API Backend that serves as a blogging application using Spring Framewo
 3. Comment on blog
 4. Retrieve privious blogs/posts in pages 
 6. Admin User  - Allowed to delete comments  and proevious posts
+7. Deployed and documented using **SWAGGER UI** swagger dependency
 
 
 #How to run - 
@@ -27,7 +28,14 @@ spring.datasource.password=PlusOne97!                                           
 
 
 
+## SNAPS
 
 
+
+![blogpic1](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/bb85cf56-df3f-4f69-b598-d70049b9b382)
+
+
+
+![blogpic2](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/c6ef7f83-31f0-451d-b28e-54858c81f3d5)
 
 
