@@ -5,6 +5,8 @@ A RESTful API backend that serves as a blogging application built using the Spri
 ## Entity Relationship diagram
 https://drive.google.com/file/d/1wlxnqsyFdKdSRxiMXtD65uDYqUnUXTaf/view?usp=sharing
 
+https://drive.google.com/file/d/1wlxnqsyFdKdSRxiMXtD65uDYqUnUXTaf/view?usp=sharing
+
 
 ---
 
