@@ -1,40 +1,94 @@
 # SpringBootBloggingAPIRESTFUL
-A RESTFUL API Backend that serves as a blogging application using Spring Framework
 
+A RESTful API backend that serves as a blogging application built using the Spring Framework.
 
+---
 
-#Stack - Spring Rest , Spring BOOT , Spring DATA JPA , PAgination and Sorting , Spring Security , Java Core
+## Stack
 
-#Features 
-1. Login/Logout using ** JWT Authentication **
-2. Create Read Update Destroy Operations on Blogs
-3. Comment on blog
-4. Retrieve privious blogs/posts in pages . Done using Pagination and Sorting repository
-6. Admin User  - Allowed to delete comments  and proevious posts
-7. Deployed and documented using **SWAGGER UI** swagger dependency
-8. The logic of this code is very simple and can be extended to many api applications
+- **Spring REST**
+- **Spring Boot**
+- **Spring Data JPA**
+- **Pagination and Sorting**
+- **Spring Security**
+- **Java Core**
 
+---
 
-#How to run - 
+## Features
 
-Make Sure to use an IDE in which Spring is installed (Preferable IDE - Spring TOOLSUITE)
+1. **JWT Authentication** for Login/Logout.
+2. CRUD (Create, Read, Update, Delete) operations on blogs.
+3. Commenting functionality on blogs.
+4. Retrieve previous blogs/posts in pages using **Pagination and Sorting**.
+5. **Admin User**:
+   - Allowed to delete comments.
+   - Allowed to delete previous posts.
+6. Deployed and documented using **Swagger UI**.
+7. Simple and extensible logic for building additional API applications.
 
-1 Download the project 
-2 Configure your local MYSQL database in the application.properties file AS FOLLOWS
+---
 
-spring.datasource.url=jdbc:mysql://blogdb.cwzdw1eu3x8n.ap-south-1.rds.amazonaws.com:3306/blog_app_apis          -> this is your database url
-spring.datasource.username=admin                                                                                -> your username for your MySQL
-spring.datasource.password=PlusOne97!                                                                            ->your password for MySQL
+## How to Run
 
+### Prerequisites
 
+- Install an IDE with Spring support (e.g., **Spring Tool Suite** or **IntelliJ IDEA**).
+- Ensure you have **MySQL** installed and running locally.
 
+### Steps
 
-## SNAPS
+1. **Download the Project**:
+   - Clone the repository or download the ZIP file.
 
+2. **Configure the Database**:
+   - Update the `application.properties` file with your local MySQL database credentials.
+
+   Example configuration:
+   ```properties
+   spring.datasource.url=jdbc:mysql://blogdb.cwzdw1eu3x8n.ap-south-1.rds.amazonaws.com:3306/blog_app_apis
+   spring.datasource.username=admin
+   spring.datasource.password=PlusOne97!
+   ```
+
+3. **Run the Application**:
+   - Open the project in your IDE.
+   - Run the `SpringBootBloggingAPIRESTFUL` application.
+
+4. **Access the API**:
+   - Use **Swagger UI** for API documentation and testing.
+
+---
+
+## API Documentation
+
+The API is documented and can be accessed via **Swagger UI**. Once the application is running, navigate to:
+
+```
+http://localhost:8080/swagger-ui/
+```
+
+---
+
+## Screenshots
+
+### Blog Dashboard
 ![blogpic3](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/4ade1393-c12c-4c68-b1bb-e111b9ec0ee4)
 
+### Blog Post View
 ![blogpic1](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/bb85cf56-df3f-4f69-b598-d70049b9b382)
 
+### Comment Section
 ![blogpic2](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/c6ef7f83-31f0-451d-b28e-54858c81f3d5)
 
+---
+
+## Future Enhancements
+
+- Add user roles and permissions for more granular access control.
+- Implement email notifications for blog updates and comments.
+- Add support for file uploads (e.g., images for blogs).
+- Enhance the UI for better user experience.
+
+---
 
