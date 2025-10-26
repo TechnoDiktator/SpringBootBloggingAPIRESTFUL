@@ -71,12 +71,16 @@ https://drive.google.com/file/d/1wlxnqsyFdKdSRxiMXtD65uDYqUnUXTaf/view?usp=shari
 The API is documented and can be accessed via **Swagger UI**. Once the application is running, navigate to:
 
 ```
-http://localhost:8080/swagger-ui/
+http://localhost:5000/swagger-ui/
 ```
 
 ---
 
 ## Screenshots
+
+### Swagger Homepage
+![alt text](bloggingapi.png)
+
 
 ### Blog Dashboard
 ![blogpic3](https://github.com/TechnoDiktator/SpringBootBloggingAPIRESTFUL/assets/99278069/4ade1393-c12c-4c68-b1bb-e111b9ec0ee4)
