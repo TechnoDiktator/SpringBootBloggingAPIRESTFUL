@@ -33,6 +33,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	private JwtTokenHelper jwtTokenHelper;
 	
 	
+	//what is the purpose of this method
+	//this method will run for each request
+	//this method will get the token from the request
+	//then it will validate the token
+	//if the token is valid then it will authenticate the user
+	//after that the request will go to the controller
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)throws ServletException, IOException {
 		
