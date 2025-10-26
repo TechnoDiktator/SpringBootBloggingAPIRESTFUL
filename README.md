@@ -7,6 +7,8 @@ https://drive.google.com/file/d/1wlxnqsyFdKdSRxiMXtD65uDYqUnUXTaf/view?usp=shari
 
 https://drive.google.com/file/d/1wlxnqsyFdKdSRxiMXtD65uDYqUnUXTaf/view?usp=sharing
 
+## Deployed
+http://34.201.44.105:5000/swagger-ui/
 
 ---
 
