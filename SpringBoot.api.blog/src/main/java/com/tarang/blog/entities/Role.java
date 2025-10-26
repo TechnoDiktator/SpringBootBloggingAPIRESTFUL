@@ -28,6 +28,7 @@ import lombok.Setter;
 public class Role {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)  
 	private int id;
 	
 	@Column(name = "role_name" , nullable = false , length =100)

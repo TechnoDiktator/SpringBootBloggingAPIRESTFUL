@@ -1,5 +1,8 @@
 package com.tarang.blog.controllers;
 
+import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tarang.blog.config.AppConstants;
 import com.tarang.blog.exceptions.ApiException;
 import com.tarang.blog.payloads.JwtAuthRequest;
 import com.tarang.blog.payloads.JwtAuthResponse;
+import com.tarang.blog.payloads.RolesDto;
 import com.tarang.blog.payloads.UserDto;
 import com.tarang.blog.security.JwtTokenHelper;
 import com.tarang.blog.services.UserService;
@@ -86,8 +91,20 @@ public class AuthController {
 	
 	//FOr registering as new user   we need to make this URL unsecure from springsecurityconfig class
 	@PostMapping("/register")
-	public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
 		
+
+		if (userDto.getRoles() != null) {
+			for (RolesDto role : userDto.getRoles()) {
+				if (!AppConstants.isValidRole(role.getId(), role.getName())) {
+					throw new IllegalArgumentException(
+						"Invalid role. Use ID " + AppConstants.NORMAL_USER + " or " + AppConstants.ADMIN_USER + 
+						" or name " + AppConstants.ROLE_NORMAL + " or " + AppConstants.ROLE_ADMIN
+					);
+				}
+			}
+		}
+
 		UserDto userDto2 = this.userService.registerNewUser(userDto);
 		
 		return new ResponseEntity<UserDto>(userDto2 , HttpStatus.CREATED);

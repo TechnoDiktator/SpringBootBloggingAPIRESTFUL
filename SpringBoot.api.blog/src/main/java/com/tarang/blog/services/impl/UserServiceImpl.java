@@ -1,6 +1,8 @@
 package com.tarang.blog.services.impl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -13,6 +15,7 @@ import com.tarang.blog.exceptions.*;
 import com.tarang.blog.config.AppConstants;
 import com.tarang.blog.entities.Role;
 import com.tarang.blog.entities.User;
+import com.tarang.blog.payloads.RolesDto;
 import com.tarang.blog.payloads.UserDto;
 import com.tarang.blog.repositories.RoleRepo;
 import com.tarang.blog.repositories.UserRepo;
@@ -219,25 +222,45 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto registerNewUser(UserDto userDto) {
-		// TODO Auto-generated method stub
-		
 		User user = this.modelmapper.map(userDto, User.class);
 		
-		//encodimng the password
+		// Encode password
 		user.setPassword(this.passwordEncoder.encode(user.getPassword()));
 		
-		//setting role to NORMAL
-			Role role =	this.roleRepo.findById(AppConstants.NORMAL_USER).orElseThrow(()->new ResourceNotFoundException("Role", "roleid", AppConstants.NORMAL_USER));   //502 is the role id for a normal role
-			user.getRoles().add(role);
-			
-			//saving to database
-			User newUser = 	this.userRepo.save(user);
-			
-			return this.modelmapper.map(newUser, UserDto.class);
-	
+		// Initialize roles set if null
+		Set<Role> roles = new HashSet<>();
+		
+		if (userDto.getRoles() != null && !userDto.getRoles().isEmpty()) {
+			for (RolesDto roleDto : userDto.getRoles()) {
+				Role requestedRole = null;
+				
+				// Try to find role by ID
+				if (roleDto.getId() != null) {
+					requestedRole = this.roleRepo.findById(roleDto.getId()).orElse(null);
+				}
+				
+				// If not found by ID, try to find by name
+				if (requestedRole == null && roleDto.getName() != null) {
+					requestedRole = this.roleRepo.findByName(roleDto.getName()).orElse(null);
+				}
+				
+				if (requestedRole != null) {
+					roles.add(requestedRole);
+				}
+			}
+		}
+		
+		// If no valid roles were found, use NORMAL_USER role
+		if (roles.isEmpty()) {
+			Role normalRole = this.roleRepo.findById(AppConstants.NORMAL_USER)
+				.orElseThrow(() -> new ResourceNotFoundException("Role", "roleid", AppConstants.NORMAL_USER));
+			roles.add(normalRole);
+		}
+		
+		user.setRoles(roles);
+		User newUser = this.userRepo.save(user);
+		return this.modelmapper.map(newUser, UserDto.class);
 	}
-	
-	
 	
 	
 	

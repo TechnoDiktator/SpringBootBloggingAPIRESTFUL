@@ -106,7 +106,10 @@ public class User implements UserDetails {
 		return this.email;
 	}
 
-
+    @Override
+    public String getPassword() {
+        return this.password; // Add this method
+    }
 
 
 	@Override
