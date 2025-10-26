@@ -135,6 +135,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>BlogApp_Rest_ApI_Project</finalName>
 	</build>
 
 </project>
